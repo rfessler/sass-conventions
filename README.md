@@ -10,11 +10,11 @@ Anyone is very welcomed to comment on this.
 
 ## Table of content
 
-1. [Derived from](#inspired-from)
+1. [Derived from](#derived-from)
 2. [Goals](#goals)
 3. [Idiomatic CSS](#idiomatic-css)
-4. [Object oriented SASS](#oo-sass)
-5. [Frameworks and libraries](#frameworks-libraries)
+4. [Object oriented SASS](#object-oriented-sass)
+5. [Frameworks and libraries](#frameworks-and-libraries)
 6. [Production code](#production-code)
 7. [File structure](#file-structure)
   - [Rules](#file-structure-rules)
@@ -37,7 +37,7 @@ Anyone is very welcomed to comment on this.
 - [To do](#todo)
 
 
-## [Derived from](#inspired-from)
+## Derived from
 
 We basically try to follow our understanding of the [SMACSS methodology](http://smacss.com ), 
 but a lot of this is taken from other documents which outlines conventions for 
@@ -47,47 +47,42 @@ writing front end code :
 - https://github.com/anthonyshort/idiomatic-sass
 - https://github.com/sturobson/a-slightly-bizarre-starting-point
 
-## [Goals](#goals)
+## Goals
 
-- Not to define the best convention ever, but to define one we agree upon with and stick to it
+- Not to have the best convention ever, but to define one we agree upon with and stick to
 - Reuse a maximum of things across projects
 - Follow SASS lang shared conventions and good practices
 
-## [Idiomatic CSS](#idiomatic-css)
+## Idiomatic CSS
 
 This part is largely taken from https://github.com/necolas/idiomatic-css
 
-*Line length :*
-- 80 columns
+- *Line length :* 80 columns
+- *Whitespaces :* configure your editor to "show invisibles" or to automatically remove end-of-line whitespace.
+- *Comments :* Always use ```//``` SASS comments, they will not be outputed. Use regular comment if you have a good reason
+- *Format :*
+  - Use one discrete selector per line in multi-selector rulesets.
+  - Include one declaration per line in a declaration block.
+  - Include a single space after the colon of a declaration.
+  - Use lowercase and shorthand hex values, e.g., #aaa.
+  - Use (single or) double quotes consistently. Preference is for double quotes, e.g., content: "".
+  - Quote attribute values in selectors, e.g., input[type="checkbox"].
+  - Where allowed, avoid specifying units for zero-values, e.g., margin: 0.
+  - Include a space after each comma in comma-separated property or function values.
+  - Include a semi-colon at the end of the last declaration in a declaration block.
+  - Place the closing brace of a ruleset in the same column as the first character of the ruleset.
+  - Separate each ruleset by a blank line.
 
-*Whitespaces :*
-- configure your editor to "show invisibles" or to automatically remove end-of-line whitespace.
+## Object oriented SASS
 
-*Comments :*
-- Always use ```//``` SASS comments, they will not be outputed. Use regular comment if you have a good reason
-
-*Format :*
-- Use one discrete selector per line in multi-selector rulesets.
-- Include one declaration per line in a declaration block.
-- Include a single space after the colon of a declaration.
-- Use lowercase and shorthand hex values, e.g., #aaa.
-- Use (single or) double quotes consistently. Preference is for double quotes, e.g., content: "".
-- Quote attribute values in selectors, e.g., input[type="checkbox"].
-- Where allowed, avoid specifying units for zero-values, e.g., margin: 0.
-- Include a space after each comma in comma-separated property or function values.
-- Include a semi-colon at the end of the last declaration in a declaration block.
-- Place the closing brace of a ruleset in the same column as the first character of the ruleset.
-- Separate each ruleset by a blank line.
+- **Decoupled :** a module should never manipulates another module
+- **Never use IDs :**
+  they add to much specificity and should be used only for javascript triggers. 
+  Such a strict rule may sound 'too much', but we prefer enforce occasionaly this 
+  than rely on ones interpretation for this.
 
 
-## [Object oriented SASS](#oo-sass)
-
-- decoupled : a module should never manipulate another module
-- never use IDs 
-  It adds to much specificity. Actually, this may sound stupid but we prefer 
-  break a too strict rule than being no strict enough
-
-## [Frameworks and libraries](#frameworks-libraries)
+## Frameworks and libraries
 
 - For everything : [Compass](http://compass-style.org/)
 - For grids : [Susy](http://susy.oddbird.net/)
@@ -97,9 +92,9 @@ This part is largely taken from https://github.com/necolas/idiomatic-css
 If working outside a Rails app, you may want use : 
 
 - [Sass globbing import](https://github.com/chriseppstein/sass-globbing) : 
-  Allow imports like ```@import "modules/*"
+  Allow imports like ```@import "modules/*"```
 
-## [Production code](#production-code)
+## Production code
 
 TODO : define rules for the outputed code in production
 
@@ -107,17 +102,17 @@ TODO : define rules for the outputed code in production
 - inlined style : ..
 - beware of legacy-for-ie variables
 
-## [File structure](#file-structure)
+## File structure
 
 Follow the structure given by SMACSS, plus some things : 
 
     +- stylesheets
       +- base
-        +- baseline.sass
-        +- colors.sass
-        +- grid.sass
-        +- index.sass // includes all /base styles in specific order
-        +- typography.sass
+        +- _baseline.sass
+        +- _colors.sass
+        +- _grid.sass
+        +- _index.sass // includes all /base styles in specific order
+        +- _typography.sass
       +- layout
       +- module
       +- state
@@ -127,11 +122,15 @@ Follow the structure given by SMACSS, plus some things :
       screen.sass
       ie.sass
 
-- ```inline.sass``` is for the basic styles which may be included in the <head> of a layout.
-- ```screen.sass``` refers to the main stylesheet
-- ```ie.sass``` refers to the stylesheets 
+Depending on the project, but we have 3 root SASS files : 
 
-### [Rules](#file-structure-rules)
+```inline.sass``` is for the basic styles which may be included in the <head> of a layout.
+
+```screen.sass``` refers to the main stylesheet
+
+```ie.sass``` refers to the stylesheets 
+
+### Rules
 
 Taken from https://github.com/anthonyshort/idiomatic-sass#file-structure
 
@@ -139,16 +138,22 @@ Taken from https://github.com/anthonyshort/idiomatic-sass#file-structure
 - Mixins/placeholders/functions should, if possible, belong in their own file.
 - Files should be named for the component they are housing. A block-list object will live in a block-list.scss file.
 
-### [Global variables](#file-structure-global-vars)
+### Global variables
 
-We don't have a ```globals.sass``` file, instead we 
+We don't have a ```globals.sass``` file, instead we do prefer put globals in the 
+file they belong 'logically'. Vertical-rhythm vars for Compass should go in 
+```base/baseline``` for example.
 
-- ```$inlined``` : used to conditionnaly load some code in /base mainly
-- ```$legacy-support-for-ie6``` : Compass var
-- ```$legacy-support-for-ie7``` : Compass var
-- ```$legacy-support-for-ie8``` : Compass var
+There is some variables still that will have an impact on the outputed code, 
+these go in the root sass file :
 
-### [Inline stylesheet](#file-structure-inline-stylesheet)
+```$inlined``` : used to conditionnaly load some code in /base mainly
+
+```$legacy-support-for-ie6``` : Compass var
+```$legacy-support-for-ie7``` : Compass var
+```$legacy-support-for-ie8``` : Compass var
+
+### Inline stylesheet
 
 The aim is to inline in ```<head>``` some very basic styles (like header, footer, typography)
 in order to gain some perceived performance.
@@ -162,21 +167,22 @@ in order to gain some perceived performance.
     @import "compass/reset"
     @import "base/index"
 
-Compass reset should be logically imported from base/index, but since base/index is 
-also imported by ```screen.sass``` and since we can't import conditionnaly a file in SASS, 
+Compass reset should be normally imported in ```base/_index.sass```, but since ```_index.sass``` 
+is also imported by ```screen.sass``` and since we can't import conditionnaly a file in SASS, 
 we just add here.
 
-### [IE stylesheet(s)](#file-structure-ie-stylesheet)
+### IE stylesheet
 
 The usual case is a mobile first approach : without any media querie, we have a mobile layout.
 For IE's version which don't support MQ, there is 2 solutions : 
 - respond.js but it adds an overhead https://github.com/scottjehl/Respond
 - deliver a 
 
-`Goal` : 
+**Goal :**
 1. an IE stylesheet generated automatically
 2. all MQ styles without MQ
 
+TODO :
 
     .lt-ie8 & {
 
@@ -192,7 +198,9 @@ For IE's version which don't support MQ, there is 2 solutions :
     }
 
 
-### [Main stylesheet](#file-structure-main-stylesheet)
+### Main stylesheet
+
+No inlined code, no support for IE, import everything.
 
 
     $inlined: false
@@ -207,28 +215,29 @@ For IE's version which don't support MQ, there is 2 solutions :
     @import "state/*"
 
 
-## [Naming convention](#naming-convention)
+## Naming convention
 
-- .only-hyphens-really
+- .only-hyphens
 - module/layout/state/utility name = filename
 
-### [Modules](#naming-convention-modules)
+### Modules
 
 No prefix
 
-### [Layout](#naming-convention-layout)
+### Layout
   
-  .l-example
+    .l-example
 
-### [States](#naming-convention-states)
-  .is-example
+### States
+    
+    .is-example
 
-### [Utilities](#naming-convention-utilities)
+### Utilities
 
 - If project specific utility, prefix with ```name-of-project-```
 - If a utility may be reused in another project, prefix with ```wtm-```
 
-### [Colors](#naming-convention-colors)
+### Colors
 
 TODO
 
@@ -248,9 +257,9 @@ TODO
     $dark-text-color: $dark-blue
 
 
-## [Properties](#properties)
+## Properties
 
-### [Ordering](#properties-ordering) 
+### Ordering
 
 Taken from https://github.com/anthonyshort/idiomatic-sass#ordering
 
@@ -264,7 +273,7 @@ we will try to stick to this basic ruleset for now.
 
 TODO: example
 
-## [Functions / Mixins](#functions-mixins)
+## Functions / Mixins
 
 - Must be located in /utilities
 - Must be as generic as possible
@@ -273,11 +282,11 @@ TODO: example
 Use defaults var values when possible ? 
 - document 
 
-### [Functions](#functions-mixins-functions)
+### Functions
 
 TODO
 
-### [Mixins](#functions-mixins-functions)
+### Mixins
 
 Taken from https://github.com/anthonyshort/idiomatic-sass#mixins
 
@@ -290,12 +299,12 @@ Taken from https://github.com/anthonyshort/idiomatic-sass#mixins
 - Avoid using more than 4 parameters. It is a sign that a mixin is too complex. When Sass adds hashes life will be - easier.
 - Mixins should be documented
 
-## [Testing](#testing)
+## Testing
 
 TODO http://compass-style.org/help/tutorials/testing/
 
 
-## [To do](#todo)
+## To do
 
 - include basic file structure example in this repo
 - test Bower package management workflow
