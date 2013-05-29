@@ -311,6 +311,7 @@ TODO http://compass-style.org/help/tutorials/testing/
 - https://github.com/styleguide/css
 - https://github.com/kneath/kss
 - test and document sass-import-once
+- http://css-tricks.com/sass-style-guide/?utm_source=dlvr.it&utm_medium=twitter
 - misc : 
   - apply every state of a module in the module's file (media queries, pseudo elements, js triggered states)
 
