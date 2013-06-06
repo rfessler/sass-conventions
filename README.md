@@ -310,6 +310,7 @@ TODO http://compass-style.org/help/tutorials/testing/
 - test Bower package management workflow
 - https://github.com/styleguide/css
 - https://github.com/kneath/kss
+- https://github.com/suitcss/suit/blob/master/doc/components.md
 - test and document sass-import-once
 - http://css-tricks.com/sass-style-guide/?utm_source=dlvr.it&utm_medium=twitter
 - misc : 
