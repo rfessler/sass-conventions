@@ -306,6 +306,9 @@ TODO http://compass-style.org/help/tutorials/testing/
 
 ## To do
 
+- http://engineering.appfolio.com/2012/11/16/css-architecture/
+- define a rule for weither using a mixin, an extend, a placeholder or not
+- https://github.com/csswizardry/CSS-Guidelines
 - include basic file structure example in this repo
 - test Bower package management workflow
 - https://github.com/styleguide/css
