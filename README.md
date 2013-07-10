@@ -306,6 +306,7 @@ TODO http://compass-style.org/help/tutorials/testing/
 
 ## To do
 
+- talk about the file organisation for submodules when a module is too big
 - http://engineering.appfolio.com/2012/11/16/css-architecture/
 - define a rule for weither using a mixin, an extend, a placeholder or not
 - https://github.com/csswizardry/CSS-Guidelines
