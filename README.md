@@ -311,9 +311,7 @@ TODO http://compass-style.org/help/tutorials/testing/
 - define a rule for weither using a mixin, an extend, a placeholder or not
 - https://github.com/csswizardry/CSS-Guidelines
 - include basic file structure example in this repo
-- test Bower package management workflow
-- https://github.com/styleguide/css
-- https://github.com/kneath/kss
+- https://github.com/HouseTrip/css-style-guide
 - https://github.com/suitcss/suit/blob/master/doc/components.md
 - test and document sass-import-once
 - http://css-tricks.com/sass-style-guide/?utm_source=dlvr.it&utm_medium=twitter
