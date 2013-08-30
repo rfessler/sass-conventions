@@ -1,6 +1,6 @@
 # Sass conventions (draft)
 
-This document outlines the conventions we have at [Le Wattman](http://lewattman.com) for writing SASS code.
+This document outlines the conventions we have at [Le Wattman](http://lewattman.com) for writing Sass code.
 It should be strictly applied, and any exception to the rule should be discussed first.
 
 It's a living document, updated if a consensus applies.
