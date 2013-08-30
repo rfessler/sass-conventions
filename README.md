@@ -1,4 +1,4 @@
-# SASS conventions (draft)
+# Sass conventions (draft)
 
 This document outlines the conventions we have at [Le Wattman](http://lewattman.com) for writing SASS code.
 It should be strictly applied, and any exception to the rule should be discussed first.
@@ -51,7 +51,7 @@ writing front end code :
 
 - Not to have the best convention ever, but to define one we agree upon with and stick to
 - Reuse a maximum of things across projects
-- Follow SASS lang shared conventions and good practices
+- Follow Sass lang shared conventions and good practices
 
 ## Idiomatic CSS
 
@@ -59,7 +59,7 @@ This part is largely taken from https://github.com/necolas/idiomatic-css
 
 - *Line length :* 80 columns
 - *Whitespaces :* configure your editor to "show invisibles" or to automatically remove end-of-line whitespace.
-- *Comments :* Always use ```//``` SASS comments, they will not be outputed. Use regular comment if you have a good reason
+- *Comments :* Always use ```//``` Sass comments, they will not be outputed. Use regular comment if you have a good reason
 - *Format :*
   - Use one discrete selector per line in multi-selector rulesets.
   - Include one declaration per line in a declaration block.
@@ -73,7 +73,7 @@ This part is largely taken from https://github.com/necolas/idiomatic-css
   - Place the closing brace of a ruleset in the same column as the first character of the ruleset.
   - Separate each ruleset by a blank line.
 
-## Object oriented SASS
+## Object oriented Sass
 
 - **Decoupled :** a module should never manipulates another module
 - **Never use IDs :**
